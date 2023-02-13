@@ -1,14 +1,14 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import { SearchProvider } from "./context/search/MovieContext";
+import { MovieProvider } from "./context/search/MovieContext";
 
 function App() {
   return (
     <>
-      <SearchProvider>
+      <MovieProvider>
         <Navbar />
         <Home />
-      </SearchProvider>
+      </MovieProvider>
     </>
   );
 }

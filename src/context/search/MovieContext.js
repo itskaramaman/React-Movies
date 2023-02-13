@@ -2,22 +2,23 @@ import { createContext, useReducer } from "react";
 import SearchReducer from "./MovieReducers";
 
 // @Todo Coorect the names of context files
-const SearchContext = createContext();
+const MovieContext = createContext();
 
-export const SearchProvider = ({ children }) => {
+export const MovieProvider = ({ children }) => {
   const initialState = {
     searchResults: [],
     movies: [],
+    comingSoonMovies: [],
     loading: true,
   };
 
   const [state, dispatch] = useReducer(SearchReducer, initialState);
 
   return (
-    <SearchContext.Provider value={{ state, dispatch }}>
+    <MovieContext.Provider value={{ state, dispatch }}>
       {children}
-    </SearchContext.Provider>
+    </MovieContext.Provider>
   );
 };
 
-export default SearchContext;
+export default MovieContext;

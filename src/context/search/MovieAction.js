@@ -1,27 +1,24 @@
 import axios from "axios";
 
-const headers = {
-  "X-RapidAPI-Key": "3829f52d12msh91e016ca76b1e6cp1e0d52jsncca1cb0c4528",
-  "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
-};
-
-const movies = axios.create({
-  baseURL: "https://online-movie-database.p.rapidapi.com",
-  headers,
+const movieAxios = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+  headers: {
+    Authorization: `Bearer ${process.env.REACT_APP_BEARER_TOKEN}`,
+  },
 });
 
-export async function fetchSearchTermResults(searchTerm) {
-  const response = await movies.get("/auto-complete", {
-    params: { q: searchTerm },
-    headers,
-  });
-  return response.data;
+// @Todo correct as per new api
+export async function fetchSearchTermResults(searchTerm) {}
+
+// @Todo correct as per new api
+export async function fetchPopularMovies() {}
+
+export async function fetchComingSoonMovies() {
+  const response = await movieAxios.get("/movie/upcoming");
+
+  return response.data?.results;
 }
 
-export async function fetchPopularMovies() {
-  const response = await movies.get("/title/get-most-popular-movies", {
-    params: { currentCountry: "US", purchaseCountry: "US", homeCountry: "US" },
-    headers,
-  });
-  return response.data;
+export async function fetchMoviesById(id) {
+  // @Todo correct as per new api
 }

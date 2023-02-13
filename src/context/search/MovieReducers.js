@@ -12,6 +12,12 @@ const SearchReducer = (state, action) => {
         searchResults: [],
         loading: false,
       };
+    case "COMING_SOON_MOVIES":
+      return {
+        ...state,
+        comingSoonMovies: action.payload,
+        loading: false,
+      };
     case "SEARCH_POPULAR_MOVIES":
       return {
         ...state,

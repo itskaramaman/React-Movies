@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { fetchSearchTermResults } from "../context/search/MovieAction";
-import SearchContext from "../context/search/MovieContext";
+import MovieContext from "../context/search/MovieContext";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch } = useContext(MovieContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

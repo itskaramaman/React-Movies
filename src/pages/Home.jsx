@@ -1,11 +1,11 @@
 import Search from "../components/Search";
-import WatchItem from "../components/Movies";
+import WatchList from "../components/WatchList";
 
 const Home = () => {
   return (
     <div>
       <Search />
-      <WatchItem title="Movies" />
+      <WatchList title="Coming Soon Movies" type="ComingSoonMovies" />
     </div>
   );
 };
