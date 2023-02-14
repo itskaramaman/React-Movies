@@ -14,7 +14,7 @@ const WatchItem = ({ item }) => {
       )}
 
       <h1 className="text-xl my-2 font-medium">{item.original_title}</h1>
-      <p className="text-gray">{item.overview.substring(0, 100)}</p>
+      <p className="text-gray">{item.overview.substring(0, 100) + "..."}</p>
       <i className="text-green-900">Released On: {item.release_date}</i>
     </div>
   );

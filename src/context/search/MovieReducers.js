@@ -24,6 +24,18 @@ const SearchReducer = (state, action) => {
         movies: action.payload,
         loading: false,
       };
+      case "POPULAR_CELEBRETIES":
+      return {
+        ...state,
+        celebreties: action.payload,
+        loading: false,
+      };
+    case "POPULAR_TV_SERIES":
+      return {
+        ...state,
+        tvSeries: action.payload,
+        loading: false,
+      };
     case "SET_LOADING":
       return {
         ...state,

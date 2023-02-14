@@ -9,6 +9,8 @@ export const MovieProvider = ({ children }) => {
     searchResults: [],
     movies: [],
     comingSoonMovies: [],
+    tvSeries: [],
+    celebreties: [],
     loading: true,
   };
 

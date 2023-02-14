@@ -15,10 +15,17 @@ export async function fetchPopularMovies() {}
 
 export async function fetchComingSoonMovies() {
   const response = await movieAxios.get("/movie/upcoming");
-
   return response.data?.results;
 }
 
-export async function fetchMoviesById(id) {
-  // @Todo correct as per new api
+export async function fetchPopularTVShows(id) {
+  const response = await movieAxios.get("/tv/popular");
+  return response.data?.results;
+}
+
+export async function fetchPopularPeople() {
+  const response = await movieAxios.get("/person/popular");
+  console.log("her");
+  console.log(response);
+  return response.data?.results;
 }

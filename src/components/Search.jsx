@@ -14,7 +14,7 @@ const Search = () => {
   };
 
   return (
-    <div className=" bg-gray-200 p-4">
+    <div className="p-4">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
