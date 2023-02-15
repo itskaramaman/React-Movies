@@ -12,7 +12,7 @@ const Navbar = () => {
         <section className="p-4 text-2xl text-white flex justify-around">
           <Link to="movies">Movies</Link>
           <Link to="tv-series">TV Series</Link>
-          <Link to="celebrities">Celebrities</Link>
+          <Link to="celebreties">Celebrities</Link>
         </section>
       </div>
     </nav>

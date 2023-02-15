@@ -25,7 +25,5 @@ export async function fetchPopularTVShows(id) {
 
 export async function fetchPopularPeople() {
   const response = await movieAxios.get("/person/popular");
-  console.log("her");
-  console.log(response);
   return response.data?.results;
 }
