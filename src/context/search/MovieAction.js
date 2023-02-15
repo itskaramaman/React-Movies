@@ -20,6 +20,8 @@ export async function fetchComingSoonMovies() {
 
 export async function fetchPopularTVShows(id) {
   const response = await movieAxios.get("/tv/popular");
+
+  console.log(response.data.results);
   return response.data?.results;
 }
 

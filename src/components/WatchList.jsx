@@ -1,5 +1,6 @@
 import WatchItem from "./WatchItem";
 import CelebItem from "./CelebItem";
+import TvItem from "./TvItem";
 
 const WatchList = ({ title, list }) => {
   return (
@@ -8,6 +9,8 @@ const WatchList = ({ title, list }) => {
       <div className="flex justify-around flex-wrap gap-3">
         {title === "Celebreties"
           ? list.map((item) => <CelebItem item={item} key={item.id} />)
+          : title === "TV Series"
+          ? list.map((item) => <TvItem item={item} key={item.id} />)
           : list.map((item) => <WatchItem item={item} key={item.id} />)}
       </div>
     </div>
