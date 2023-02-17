@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCelebDetails } from "../hooks/FetchDetails";
 
-const CelebDetails = () => {
+const MovieDetails = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
 
@@ -14,7 +14,6 @@ const CelebDetails = () => {
     getCelebDetails(id);
   }, [id]);
 
-  
   return (
     <div className="flex justify-between bg-gray-800 px-10 pb-6">
       <div className="basis-1/3">
@@ -46,4 +45,4 @@ const CelebDetails = () => {
   );
 };
 
-export default CelebDetails;
+export default MovieDetails;

@@ -5,6 +5,7 @@ import Movies from "./pages/Movies";
 import TV from "./pages/TV";
 import Celebrities from "./pages/Celebreties";
 import CelebDetails from "./components/CelebDetails";
+import TvDetails from "./components/TvDetails";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               path="celebreties/celebreties/:id"
               element={<CelebDetails />}
             />
+            <Route path="tv-series/tv/:id" element={<TvDetails />} />
           </Routes>
         </MovieProvider>
       </BrowserRouter>

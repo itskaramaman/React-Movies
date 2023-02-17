@@ -11,3 +11,8 @@ export const fetchCelebDetails = async (id) => {
   const response = await movieAxios.get(`/person/${id}`);
   return response.data;
 };
+
+export const fetchTvDetails = async (id) => {
+  const response = await movieAxios.get(`/tv/${id}`);
+  return response.data;
+};
