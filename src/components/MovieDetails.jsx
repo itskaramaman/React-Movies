@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchMovieDetails } from "../hooks/FetchDetails";
+import { useParams, Link } from "react-router-dom";
+import { fetchMovieDetails, fetchSimilarMovies } from "../hooks/FetchDetails";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
+  const [similarMovies, setSimilarMovies] = useState([]);
 
   useEffect(() => {
     const getMovieDetails = async (id) => {
       const response = await fetchMovieDetails(id);
       setDetails(response);
     };
+    const getSimilarMovies = async (id) => {
+      const response = await fetchSimilarMovies(id);
+      setSimilarMovies(response.results);
+    };
     getMovieDetails(id);
+    getSimilarMovies(id);
   }, [id]);
 
   return (
@@ -56,6 +62,27 @@ const MovieDetails = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="mt-5">
+          <h1 className="text-xl mb-3">View Similar Movies</h1>
+          <div className="flex justify-between flex-wrap">
+            {similarMovies.map((movie) => {
+              return (
+                movie.poster_path !== null && (
+                  <div className="mini-card mb-5" key={movie.id}>
+                    <Link to={`/movie/${movie.id}`}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                        alt="celeb poster"
+                      />
+                      <p>{movie.title}</p>
+                    </Link>
+                  </div>
+                )
+              );
+            })}
           </div>
         </section>
       </div>

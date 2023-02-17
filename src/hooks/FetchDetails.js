@@ -21,3 +21,8 @@ export const fetchMovieDetails = async (id) => {
   const response = await movieAxios.get(`/movie/${id}`);
   return response.data;
 };
+
+export const fetchSimilarMovies = async (id) => {
+  const response = await movieAxios.get(`/movie/${id}/similar`);
+  return response.data;
+};

@@ -44,4 +44,11 @@
     background-color: #f83f3f3f;
     cursor: pointer;
   }
+
+  .mini-card {
+    width: 200px;
+    object-fit: contain;
+    color: white;
+    cursor: pointer;
+  }
 }
