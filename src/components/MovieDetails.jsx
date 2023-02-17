@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchMovieDetails, fetchSimilarMovies } from "../hooks/FetchDetails";
+import { scrollToTop } from "../utils/utils";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -72,7 +73,7 @@ const MovieDetails = () => {
               return (
                 movie.poster_path !== null && (
                   <div className="mini-card mb-5" key={movie.id}>
-                    <Link to={`/movie/${movie.id}`}>
+                    <Link to={`/movie/${movie.id}`} onClick={scrollToTop}>
                       <img
                         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         alt="celeb poster"
