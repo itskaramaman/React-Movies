@@ -18,11 +18,13 @@ const TvDetails = () => {
   return (
     <div className="flex justify-between bg-gray-800 px-10 pb-6">
       <div className="basis-1/3">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${details.poster_path}`}
-          alt="celeb poster"
-          className="details-img"
-        />
+        {details.poster_path && (
+          <img
+            src={`https://image.tmdb.org/t/p/original/${details.poster_path}`}
+            alt="celeb poster"
+            className="details-img"
+          />
+        )}
       </div>
       <div className="basis-2/3 text-white">
         <h1 className="text-3xl mb-5">{details.name}</h1>

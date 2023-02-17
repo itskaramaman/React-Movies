@@ -16,3 +16,8 @@ export const fetchTvDetails = async (id) => {
   const response = await movieAxios.get(`/tv/${id}`);
   return response.data;
 };
+
+export const fetchMovieDetails = async (id) => {
+  const response = await movieAxios.get(`/movie/${id}`);
+  return response.data;
+};

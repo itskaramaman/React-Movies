@@ -1,45 +1,63 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCelebDetails } from "../hooks/FetchDetails";
+import { fetchMovieDetails } from "../hooks/FetchDetails";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    const getCelebDetails = async (id) => {
-      const response = await fetchCelebDetails(id);
+    const getMovieDetails = async (id) => {
+      const response = await fetchMovieDetails(id);
       setDetails(response);
     };
-    getCelebDetails(id);
+    getMovieDetails(id);
   }, [id]);
 
   return (
     <div className="flex justify-between bg-gray-800 px-10 pb-6">
       <div className="basis-1/3">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${details.profile_path}`}
-          alt="celeb poster"
-          className="details-img"
-        />
+        {details.poster_path && (
+          <img
+            src={`https://image.tmdb.org/t/p/original/${details.poster_path}`}
+            alt="celeb poster"
+            className="details-img"
+          />
+        )}
       </div>
       <div className="basis-2/3 text-white">
-        <h1 className="text-3xl mb-5">{details.name}</h1>
-        <p className="text-gray-300">{details.biography}</p>
-        <div className="flex justify-between my-5">
-          <div className="dark-card">
-            <h2>Birth Place</h2>
-            <p>{details.place_of_birth}</p>
+        <h1 className="text-3xl mb-5">{details.title}</h1>
+        <p className="text-gray-300">{details.overview}</p>
+        <section className="flex justify-between">
+          {/* genres */}
+          <div className="my-3">
+            <h1 className="text-xl">Genres</h1>
+            <ul className="ml-5">
+              {details.genres?.map((genre) => (
+                <li className="list-disc" key={genre.id}>
+                  {genre.name}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="dark-card">
-            <h2>Birthday</h2>
-            <p>{details.birthday}</p>
+
+          <div className="my-3">
+            <h1 className="text-xl">Released Date</h1>
+            <li className="list-disc">{details.release_date}</li>
           </div>
-          <div className="dark-card">
-            <h2>Known for</h2>
-            <p>{details.known_for}</p>
+
+          {/* production companies */}
+          <div className="my-3">
+            <h1 className="text-xl">Production Companies</h1>
+            <ul className="ml-5">
+              {details.production_companies?.map((company) => (
+                <li className="list-disc" key={company.id}>
+                  {company.name}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
