@@ -50,26 +50,34 @@ const TvDetails = () => {
           </div>
 
           <div className="my-3">
-            <h1 className="text-xl">Created By</h1>
-            <ul className="ml-5">
-              {details.created_by?.map((creator) => (
-                <li className="list-disc" key={creator.id}>
-                  {creator.name}
-                </li>
-              ))}
-            </ul>
+            {details.created_by?.length > 0 && (
+              <div>
+                <h1 className="text-xl">Created By</h1>
+                <ul className="ml-5">
+                  {details.created_by?.map((creator) => (
+                    <li className="list-disc" key={creator.id}>
+                      {creator.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* production companies */}
           <div className="my-3">
-            <h1 className="text-xl">Production Companies</h1>
-            <ul className="ml-5">
-              {details.production_companies?.map((company) => (
-                <li className="list-disc" key={company.id}>
-                  {company.name}
-                </li>
-              ))}
-            </ul>
+            {details.created_by?.length > 0 && (
+              <div>
+                <h1 className="text-xl">Production Companies</h1>
+                <ul className="ml-5">
+                  {details.production_companies?.map((company) => (
+                    <li className="list-disc" key={company.id}>
+                      {company.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
 

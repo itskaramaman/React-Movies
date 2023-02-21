@@ -1,16 +1,20 @@
 import { useState, useContext } from "react";
-import { fetchSearchTermResults } from "../context/search/MovieAction";
 import MovieContext from "../context/search/MovieContext";
+import { fetchSearchResults } from "../hooks/FetchDetails";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { dispatch } = useContext(MovieContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: "CLEAR_SEARCH_RESULTS" });
     dispatch({ type: "SET_LOADING" });
-    const searchTermResults = await fetchSearchTermResults(searchTerm);
-    dispatch({ type: "SET_SEARCH_RESULTS", payload: searchTermResults.d });
+    const searchTermResults = await fetchSearchResults(searchTerm);
+    dispatch({ type: "SET_SEARCH_RESULTS", payload: searchTermResults });
+    navigate("/search");
   };
 
   return (

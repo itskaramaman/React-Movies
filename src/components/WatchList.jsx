@@ -3,6 +3,7 @@ import CelebItem from "./CelebItem";
 import TvItem from "./TvItem";
 
 const WatchList = ({ title, list }) => {
+  console.log(list);
   return (
     <div className=" bg-gray-600 p-10">
       <h1 className=" text-white text-2xl p-5">{title}</h1>

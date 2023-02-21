@@ -31,3 +31,23 @@ export const fetchSimilarTvSeries = async (id) => {
   const response = await movieAxios.get(`/tv/${id}/similar`);
   return response.data;
 };
+
+export const fetchSearchResults = async (query) => {
+  const response = await axios.all([
+    movieAxios.get("/search/movie", {
+      params: { query: query },
+    }),
+    // movieAxios.get("/search/tv", {
+    //   params: { query: query },
+    // }),
+    // movieAxios.get("/search/person", {
+    //   params: { query: query },
+    // }),
+  ]);
+
+  return [
+    ...response[0].data.results,
+    // ...response[1].data.results,
+    // ...response[2].data.results,
+  ];
+};

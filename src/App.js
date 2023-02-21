@@ -7,6 +7,7 @@ import Celebrities from "./pages/Celebreties";
 import CelebDetails from "./components/CelebDetails";
 import TvDetails from "./components/TvDetails";
 import MovieDetails from "./components/MovieDetails";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             />
             <Route path="tv-series/tv/:id" element={<TvDetails />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </MovieProvider>
       </BrowserRouter>
