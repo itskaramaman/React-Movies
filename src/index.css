@@ -75,4 +75,10 @@
     margin-bottom: 15px;
     padding: theme("spacing.2");
   }
+
+  .details-img {
+    object-fit: contain;
+    width: auto;
+    object-position: center top;
+  }
 }
