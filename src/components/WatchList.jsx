@@ -7,8 +7,8 @@ import { scrollToTop } from "../utils/utils";
 
 const WatchList = ({ title, list, setPageNumber }) => {
   return (
-    <div className=" bg-gray-600 p-10 relative">
-      <h1 className=" text-white text-2xl p-5">{title}</h1>
+    <div className=" bg-gray-600 p-5 md:p-10 relative">
+      <h1 className=" text-white text-xl md:text-2xl pb-3 md:p-5">{title}</h1>
 
       {window.scrollY > window.innerHeight && (
         <BsFillArrowUpCircleFill

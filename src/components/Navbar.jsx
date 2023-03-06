@@ -6,14 +6,14 @@ const Navbar = () => {
 
   return (
     <nav className=" bg-gray-900">
-      <div className="md:flex md:justify-between">
-        <Link to="/" className="text-white p-6 text-2xl">
+      <div className=" pt-5 md:pt-0 md:flex md:justify-between">
+        <Link to="/" className="text-white p-6 text-3xl md:text-2xl">
           Movies World
         </Link>
         <Search />
       </div>
       <div className=" bg-gray-800">
-        <section className="p-4 text-2xl text-white flex justify-around">
+        <section className=" py-2 md:p-4 text-xl md:text-2xl text-white flex justify-around">
           <Link
             to="movies"
             className={
