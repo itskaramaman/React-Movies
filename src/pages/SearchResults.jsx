@@ -1,17 +1,16 @@
 import { useContext } from "react";
-import WatchList from "../components/WatchList";
 import MovieContext from "../context/search/MovieContext";
+import SearchList from "../components/SearchList";
 
 const SearchResults = () => {
   const { state } = useContext(MovieContext);
-  //   console.log(state.searchResults.slice(20, 20));
 
   return (
-    <>
-      <WatchList title="Search Results" list={state.searchResults} />
-      {/* <WatchList title="TV Series" list={state.searchResults.slice(20, 20)} />
-      <WatchList title="Celebreties" list={state.searchResults.slice(40, 20)} /> */}
-    </>
+    <div className="bg-gray-900">
+      <h1>Search Result</h1>
+      <SearchList title="Movies" searchResults={state.searchResults} />
+      <SearchList searchResults={state.searchResults} />
+    </div>
   );
 };
 

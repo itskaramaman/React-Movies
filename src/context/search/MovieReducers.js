@@ -15,7 +15,7 @@ const SearchReducer = (state, action) => {
     case "COMING_SOON_MOVIES":
       return {
         ...state,
-        comingSoonMovies: action.payload,
+        comingSoonMovies: [...state.comingSoonMovies, ...action.payload],
         loading: false,
       };
     case "SEARCH_POPULAR_MOVIES":
@@ -24,7 +24,7 @@ const SearchReducer = (state, action) => {
         movies: action.payload,
         loading: false,
       };
-      case "POPULAR_CELEBRETIES":
+    case "POPULAR_CELEBRETIES":
       return {
         ...state,
         celebreties: action.payload,
@@ -33,7 +33,7 @@ const SearchReducer = (state, action) => {
     case "POPULAR_TV_SERIES":
       return {
         ...state,
-        tvSeries: action.payload,
+        tvSeries: [...state.tvSeries, ...action.payload],
         loading: false,
       };
     case "SET_LOADING":
@@ -41,7 +41,24 @@ const SearchReducer = (state, action) => {
         ...state,
         loading: true,
       };
-
+    case "CLEAR_COMING_SOON_MOVIES":
+      return {
+        ...state,
+        comingSoonMovies: [],
+        loading: false,
+      };
+    case "CLEAR_POPULAR_TV":
+      return {
+        ...state,
+        tvSeries: [],
+        loading: false,
+      };
+    case "CLEAR_POPULAR_CELEBRETIES":
+      return {
+        ...state,
+        celebreties: [],
+        loading: false,
+      };
     default:
       return state;
   }

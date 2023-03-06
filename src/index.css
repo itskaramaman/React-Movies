@@ -51,4 +51,27 @@
     color: white;
     cursor: pointer;
   }
+
+  .search-result {
+    height: 400px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    gap: 30px;
+  }
+
+  .hdiv {
+    display: block;
+    flex-shrink: 0;
+    overflow-wrap: break-word;
+    object-fit: contain;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: auto;
+    margin-bottom: 15px;
+  }
 }

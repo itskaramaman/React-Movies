@@ -7,23 +7,21 @@ const movieAxios = axios.create({
   },
 });
 
-// @Todo correct as per new api
-export async function fetchSearchTermResults(searchTerm) {}
-
-// @Todo correct as per new api
-export async function fetchPopularMovies() {}
-
-export async function fetchComingSoonMovies() {
-  const response = await movieAxios.get("/movie/upcoming");
+export async function fetchComingSoonMovies(page = 1) {
+  const response = await movieAxios.get(`/movie/upcoming`, {
+    params: { page },
+  });
   return response.data?.results;
 }
 
-export async function fetchPopularTVShows(id) {
-  const response = await movieAxios.get("/tv/popular");
+export async function fetchPopularTVShows(page = 1) {
+  const response = await movieAxios.get("/tv/popular", { params: { page } });
   return response.data?.results;
 }
 
-export async function fetchPopularPeople() {
-  const response = await movieAxios.get("/person/popular");
+export async function fetchPopularPeople(page = 1) {
+  const response = await movieAxios.get("/person/popular", {
+    params: { page },
+  });
   return response.data?.results;
 }

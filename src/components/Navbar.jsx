@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <nav className=" bg-gray-900">
-      <div className="flex justify-between">
+      <div className="md:flex md:justify-between">
         <Link to="/" className="text-white p-6 text-2xl">
           Movies World
         </Link>
@@ -17,7 +17,9 @@ const Navbar = () => {
           <Link
             to="movies"
             className={
-              location.pathname === "/movies" ? `text-blue-400` : `text-white`
+              location.pathname.startsWith("/movie")
+                ? `text-blue-400`
+                : `text-white`
             }
           >
             Movies
@@ -25,7 +27,7 @@ const Navbar = () => {
           <Link
             to="tv-series"
             className={
-              location.pathname === "/tv-series"
+              location.pathname.startsWith("/tv-series")
                 ? `text-blue-400`
                 : `text-white`
             }
@@ -35,7 +37,7 @@ const Navbar = () => {
           <Link
             to="celebreties"
             className={
-              location.pathname === "/celebreties"
+              location.pathname.startsWith("/celebreties")
                 ? `text-blue-400`
                 : `text-white`
             }
