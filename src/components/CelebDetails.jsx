@@ -20,18 +20,18 @@ const CelebDetails = () => {
   }, [id]);
 
   return (
-    <div className="flex justify-between bg-gray-800 px-10 pb-6">
-      <div className="basis-1/3">
+    <div className="md:flex md:justify-between bg-gray-800 md:px-10 md:pb-6">
+      <div className="md:basis-1/3">
         {details.profile_path && (
           <img
             src={`https://image.tmdb.org/t/p/original/${details.profile_path}`}
             alt="celeb poster"
-            className="details-img"
+            className="details-img mx-auto pt-5"
           />
         )}
       </div>
-      <div className="basis-2/3 text-white">
-        <h1 className="text-3xl mb-5">{details.name}</h1>
+      <div className="p-5 md:basis-2/3 text-white">
+        <h1 className="text-xl md:text-3xl md:mb-5">{details.name}</h1>
         <p className="text-gray-300">{biography}</p>
         {!showCompleteBiography && (
           <i

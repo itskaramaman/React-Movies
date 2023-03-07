@@ -22,27 +22,27 @@ const TvDetails = () => {
   }, [id]);
 
   return (
-    <div className="flex justify-between bg-gray-800 px-10 pb-6">
-      <div className="basis-1/3">
+    <div className="md:flex md:justify-between bg-gray-800 md:px-10 md:pb-6">
+      <div className="md:basis-1/3">
         {details.poster_path && (
           <img
             src={`https://image.tmdb.org/t/p/original/${details.poster_path}`}
             alt="celeb poster"
-            className="details-img"
+            className="details-img mx-auto pt-5"
           />
         )}
       </div>
-      <div className="basis-2/3 text-white">
-        <h1 className="text-3xl mb-5">{details.name}</h1>
+      <div className="p-5 basis-2/3 text-white">
+        <h1 className="text-xl md:text-3xl md:mb-5">{details.name}</h1>
         <p className="text-gray-300">{details.overview}</p>
 
         <section className="flex justify-between">
           {/* genres */}
           <div className="my-3">
-            <h1 className="text-xl">Genres</h1>
+            <h1 className="text-sm md:text-xl">Genres</h1>
             <ul className="ml-5">
               {details.genres?.map((genre) => (
-                <li className="list-disc" key={genre.id}>
+                <li className="text-xs md:text-base list-disc" key={genre.id}>
                   {genre.name}
                 </li>
               ))}
@@ -52,10 +52,13 @@ const TvDetails = () => {
           <div className="my-3">
             {details.created_by?.length > 0 && (
               <div>
-                <h1 className="text-xl">Created By</h1>
+                <h1 className="text-sm md:text-xl">Created By</h1>
                 <ul className="ml-5">
                   {details.created_by?.map((creator) => (
-                    <li className="list-disc" key={creator.id}>
+                    <li
+                      className="text-xs md:text-base list-disc"
+                      key={creator.id}
+                    >
                       {creator.name}
                     </li>
                   ))}
@@ -68,10 +71,13 @@ const TvDetails = () => {
           <div className="my-3">
             {details.created_by?.length > 0 && (
               <div>
-                <h1 className="text-xl">Production Companies</h1>
+                <h1 className="text-sm md:text-xl">Production Companies</h1>
                 <ul className="ml-5">
                   {details.production_companies?.map((company) => (
-                    <li className="list-disc" key={company.id}>
+                    <li
+                      className="text-xs md:text-base list-disc"
+                      key={company.id}
+                    >
                       {company.name}
                     </li>
                   ))}
@@ -94,8 +100,10 @@ const TvDetails = () => {
         </section>
 
         <section className="mt-5">
-          <h1 className="text-xl mb-3">View Similar Movies</h1>
-          <div className="flex justify-between flex-wrap">
+          <h1 className="text-center md:text-start text-xl mb-3">
+            View Similar Movies
+          </h1>
+          <div className="flex flex-col items-center md:justify-between md:flex-wrap md:flex-row">
             {similarTV.map((tv) => {
               return (
                 tv.poster_path !== null && (

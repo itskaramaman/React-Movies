@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { BiMoviePlay } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { v4 as uuid4 } from "uuid";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import placeHolder from "../assets/placeholder.jpg";
 
 const WatchItem = ({ item, lastElementRef }) => {
   const { id } = item;
@@ -15,8 +17,9 @@ const WatchItem = ({ item, lastElementRef }) => {
       >
         <Link to={`/movie/${id}`}>
           {item.poster_path ? (
-            <img
+            <LazyLoadImage
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+              placeholderSrc={placeHolder}
               alt="movie poster"
             />
           ) : (
