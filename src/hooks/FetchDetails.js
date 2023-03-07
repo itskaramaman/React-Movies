@@ -37,17 +37,17 @@ export const fetchSearchResults = async (query) => {
     movieAxios.get("/search/movie", {
       params: { query: query },
     }),
-    // movieAxios.get("/search/tv", {
-    //   params: { query: query },
-    // }),
-    // movieAxios.get("/search/person", {
-    //   params: { query: query },
-    // }),
+    movieAxios.get("/search/tv", {
+      params: { query: query },
+    }),
+    movieAxios.get("/search/person", {
+      params: { query: query },
+    }),
   ]);
 
-  return [
-    ...response[0].data.results,
-    // ...response[1].data.results,
-    // ...response[2].data.results,
-  ];
+  return {
+    movies: response[0].data.results,
+    tv: response[1].data.results,
+    celebrities: response[2].data.results,
+  };
 };

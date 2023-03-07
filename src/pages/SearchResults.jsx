@@ -7,9 +7,13 @@ const SearchResults = () => {
 
   return (
     <div className="bg-gray-900">
-      <h1>Search Result</h1>
-      <SearchList title="Movies" searchResults={state.searchResults} />
-      <SearchList searchResults={state.searchResults} />
+      <h1 className=" px-5 text-2xl text-white">Search Results</h1>
+      <SearchList title="Movies" searchResults={state.searchResults?.movies} />
+      <SearchList title="TV Series" searchResults={state.searchResults?.tv} />
+      <SearchList
+        title="Celebrities"
+        searchResults={state.searchResults?.celebrities}
+      />
     </div>
   );
 };

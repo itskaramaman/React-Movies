@@ -101,7 +101,7 @@ const TvDetails = () => {
 
         <section className="mt-5">
           <h1 className="text-center md:text-start text-xl mb-3">
-            View Similar Movies
+            View Similar TV Series
           </h1>
           <div className="flex flex-col items-center md:justify-between md:flex-wrap md:flex-row">
             {similarTV.map((tv) => {

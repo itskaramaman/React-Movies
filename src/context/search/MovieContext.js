@@ -1,12 +1,11 @@
 import { createContext, useReducer } from "react";
 import SearchReducer from "./MovieReducers";
 
-// @Todo Coorect the names of context files
 const MovieContext = createContext();
 
 export const MovieProvider = ({ children }) => {
   const initialState = {
-    searchResults: [],
+    searchResults: {},
     movies: [],
     comingSoonMovies: [],
     tvSeries: [],
